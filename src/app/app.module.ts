@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
+import {HttpClientModule} from '@angular/common/http';
 
  
  
@@ -16,14 +17,14 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
  
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
-  signInFlow: 'popup',
+  // signInFlow: 'popup',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
   ],
   tosUrl: '<your-tos-link>',
   privacyPolicyUrl: '<your-privacyPolicyUrl-link>',
-  credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM
+  credentialHelper: firebaseui.auth.CredentialHelper.NONE
 };
  
 @NgModule({
@@ -35,7 +36,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
