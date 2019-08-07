@@ -6,6 +6,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Pineapples, Pineapple } from './models/pineapples';
+import { WatchQueryFetchPolicy } from 'apollo-client';
 
 
 @Component({
@@ -53,9 +54,10 @@ export class AppComponent implements OnInit {
           }
         }
       `, context: {
-          headers: new HttpHeaders().set("Authorization", "Bearer " + token)
-        }
-
+          headers: new HttpHeaders().set("Authorization", "Bearer " + token),
+        },
+        fetchPolicy:'network-only'
+      
       })
       .valueChanges.subscribe(result => {
         this.rates = result.data && result.data.pineapples;
@@ -67,7 +69,7 @@ export class AppComponent implements OnInit {
   }
 
   onLogOut() {
-    this.afa.auth.signOut();
+    this.afa.auth.signOut();    
   }
 
   callServerAuth() {
