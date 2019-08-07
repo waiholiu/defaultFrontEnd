@@ -16,6 +16,7 @@ import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { GraphQLModule } from './graphql.module';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
@@ -41,7 +42,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     HttpClientModule,
     LocalStorageModule.forRoot({
       storageType: 'localStorage'
-    })
+    }),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]
