@@ -8,6 +8,7 @@
 
 <button (click)="callServerAuth()"> Call a authorized endpoint</button>
 <button (click)="callServerUnauth()"> Call anonymous endpoint</button>
+<button (click)="callGraphQLQuery()"> Call graphql query</button>
 
 
 <div *ngIf="loading">
@@ -18,6 +19,6 @@
   </div>
   <div *ngIf="rates">
     <div *ngFor="let rate of rates">
-      <p>{{rate.currency}}: {{rate.rate}}</p>
+      <p>{{rate.id}}: {{rate.name}}</p>
     </div>
   </div>

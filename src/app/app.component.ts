@@ -5,6 +5,7 @@ import { LocalStorageService } from 'angular-2-local-storage';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { Pineapples, Pineapple } from './models/pineapples';
 
 
 @Component({
@@ -15,13 +16,13 @@ import gql from 'graphql-tag';
 
 export class AppComponent implements OnInit {
 
-  rates: Rate[];
+  rates: Pineapple[];
   loading = true;
   error: any;
-  
 
-  constructor(private apollo: Apollo, 
-    private afa: AngularFireAuth, private http: HttpClient, 
+
+  constructor(private apollo: Apollo,
+    private afa: AngularFireAuth, private http: HttpClient,
     private localStorageService: LocalStorageService) {
 
   }
@@ -33,24 +34,32 @@ export class AppComponent implements OnInit {
       this.localStorageService.set('loginToken', data);
     });
 
+
+
+  }
+
+
+  callGraphQLQuery() {
+
     this.apollo
-      .watchQuery<Rates>({
+      .watchQuery<Pineapples>({
         query: gql`
-          {
-            rates(currency: "USD") {
-              currency
-              rate
-            }
+        {
+          pineapples{
+            id
+            name
           }
-        `,
+        }
+      `,
       })
       .valueChanges.subscribe(result => {
-        this.rates = result.data && result.data.rates;
+        this.rates = result.data && result.data.pineapples;
         this.loading = result.loading;
         this.error = result.errors;
       });
-  }
 
+
+  }
 
   onLogOut() {
     this.afa.auth.signOut();
