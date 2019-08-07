@@ -41,8 +41,10 @@ export class AppComponent implements OnInit {
 
   callGraphQLQuery() {
 
+    const token = this.localStorageService.get('loginToken');
     this.apollo
       .watchQuery<Pineapples>({
+
         query: gql`
         {
           pineapples{
@@ -50,7 +52,10 @@ export class AppComponent implements OnInit {
             name
           }
         }
-      `,
+      `, context: {
+          headers: new HttpHeaders().set("Authorization", "Bearer " + token)
+        }
+
       })
       .valueChanges.subscribe(result => {
         this.rates = result.data && result.data.pineapples;
