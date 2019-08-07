@@ -14,9 +14,7 @@ export class AppComponent {
     this.afa.idToken.subscribe((data) => {
       console.log(data);
       this.localStorageService.set('loginToken', data);
-      
     });
-    
   }
 
   onLogOut(){
