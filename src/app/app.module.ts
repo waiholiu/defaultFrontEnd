@@ -17,6 +17,7 @@ import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GraphQLModule } from './graphql.module';
+import { PineappleListComponent } from './pineapple-list/pineapple-list.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
@@ -32,7 +33,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PineappleListComponent
   ],
   imports: [
     BrowserModule,

@@ -52,12 +52,8 @@ export class AppComponent implements OnInit {
             name
           }
         }
-      `, 
-      // context: {
-      //     headers: new HttpHeaders().set("Authorization", "Bearer " + token),
-      //   },
+      `,
         fetchPolicy:'network-only'
-      
       })
       .valueChanges.subscribe(result => {
         this.rates = result.data && result.data.pineapples;
@@ -69,7 +65,7 @@ export class AppComponent implements OnInit {
   }
 
   onLogOut() {
-    this.afa.auth.signOut();    
+    this.afa.auth.signOut();
   }
 
   callServerAuth() {
