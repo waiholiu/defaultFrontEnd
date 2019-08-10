@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -20,7 +21,7 @@ import { GraphQLModule } from './graphql.module';
 import { PineappleListComponent } from './pineapple-list/pineapple-list.component';
 import { RoutingModule } from './routing.module';
 import { FrontPageComponent } from './front-page/front-page.component';
-
+import { MaterialModule } from './material.module';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
   signInOptions: [
@@ -50,7 +51,9 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
       storageType: 'localStorage'
     }),
     GraphQLModule,
-    RoutingModule
+    RoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
