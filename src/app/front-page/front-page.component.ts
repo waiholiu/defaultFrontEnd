@@ -19,7 +19,7 @@ export class FrontPageComponent {
 
 
   constructor(private apollo: Apollo,
-    private afa: AngularFireAuth, private http: HttpClient,
+    private http: HttpClient,
     private localStorageService: LocalStorageService) {
 
   }

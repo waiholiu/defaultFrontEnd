@@ -1,3 +1,8 @@
-<mat-list role="list">
-  <mat-list-item role="listitem">Item 1</mat-list-item>
+<mat-list role="list"  *ngFor="let pineapple of pineapples">
+  <mat-list-item role="listitem">
+    <h3 matLine> {{pineapple.name}} </h3>
+    <p matLine> ID - {{pineapple.id}} </p>
+    
+
+  </mat-list-item>
 </mat-list>
