@@ -18,6 +18,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GraphQLModule } from './graphql.module';
 import { PineappleListComponent } from './pineapple-list/pineapple-list.component';
+import { RoutingModule } from './routing.module';
+import { FrontPageComponent } from './front-page/front-page.component';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
@@ -34,7 +36,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 @NgModule({
   declarations: [
     AppComponent,
-    PineappleListComponent
+    PineappleListComponent,
+    FrontPageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     LocalStorageModule.forRoot({
       storageType: 'localStorage'
     }),
-    GraphQLModule
+    GraphQLModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

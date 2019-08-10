@@ -1,26 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<firebase-ui
-    ></firebase-ui>
+<firebase-ui></firebase-ui>
 
-    <button (click)="onLogOut()">log out</button>
-
-
-<button (click)="callServerAuth()"> Call a authorized endpoint</button>
-<button (click)="callServerUnauth()"> Call anonymous endpoint</button>
-<button (click)="callGraphQLQuery()"> Call graphql query</button>
-
-
-
-
-<div *ngIf="loading">
-    Loading...
-  </div>
-  <div *ngIf="error">
-    Error :(
-  </div>
-  <div *ngIf="rates">
-    <div *ngFor="let rate of rates">
-      <p>{{rate.id}}: {{rate.name}}</p>
-    </div>
-  </div>
+<button (click)="onLogOut()">log out</button>
+<div>
+  <router-outlet></router-outlet>
+</div>
