@@ -2,6 +2,7 @@
   <mat-list-item role="listitem">
     <h3 matLine> {{pineapple.name}} </h3>
     <p matLine> ID - {{pineapple.id}} </p>
+    <button mat-raised-button color="warn" (click)="deletePineapple(pineapple.id)">Delete</button>
     
 
   </mat-list-item>
