@@ -1,4 +1,4 @@
-import { Apollo } from 'apollo-angular';
+import { Apollo, QueryRef } from 'apollo-angular';
 import { Component, OnInit } from '@angular/core';
 import { Pineapples, Pineapple } from '../models/pineapples';
 import gql from 'graphql-tag';
@@ -31,15 +31,17 @@ export class PineappleListComponent implements OnInit {
   loading = true;
   error: any;
 
+  pineappleListQuery: QueryRef<Pineapples>;
+
 
   async deletePineapple(pineappleId) {
     const result = await this.apollo.mutate({
       mutation: gqlDeletePineapple,
       variables: {
         deleteId: pineappleId
-      }
+      }, refetchQueries: [{ query: gqlGetPineappleList }]
     }).subscribe({
-      next: () => this.getPineappleList(),
+      next: () => console.log('done'),
       error: (error) => console.log(error)
     });
 
@@ -52,13 +54,14 @@ export class PineappleListComponent implements OnInit {
 
   }
 
-
   private getPineappleList() {
-    this.apollo
+    this.pineappleListQuery = this.apollo
       .watchQuery<Pineapples>({
         query: gqlGetPineappleList
         , fetchPolicy: 'network-only'
-      })
+      });
+
+    this.pineappleListQuery
       .valueChanges.subscribe(result => {
         this.pineapples = result.data && result.data.pineapples;
         this.loading = result.loading;
