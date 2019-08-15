@@ -22,6 +22,7 @@ import { PineappleListComponent } from './pages/pineapple-list/pineapple-list.co
 import { RoutingModule } from './routing.module';
 import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { MaterialModule } from './material.module';
+import { LoginComponent } from './pages/login/login.component';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
   signInOptions: [
@@ -38,7 +39,8 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
   declarations: [
     AppComponent,
     PineappleListComponent,
-    FrontPageComponent
+    FrontPageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

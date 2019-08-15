@@ -1,8 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Second Line</span>
+    <span class="fill-remaining-space"></span>
+    <button (click)="onLogOut()">log out</button>
+  </mat-toolbar-row>
 
+</mat-toolbar>
 <firebase-ui></firebase-ui>
 
-<button (click)="onLogOut()">log out</button>
+
 <div>
   <router-outlet></router-outlet>
 </div>
