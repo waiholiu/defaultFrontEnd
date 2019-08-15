@@ -7,6 +7,7 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Pineapples, Pineapple } from './models/pineapples';
 import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -18,23 +19,20 @@ import { Router } from '@angular/router';
 
 export class AppComponent implements OnInit {
 
-  constructor(private apollo: Apollo, private router : Router,
+  constructor(private apollo: Apollo, private router: Router,
     private afa: AngularFireAuth, private http: HttpClient,
-    private localStorageService: LocalStorageService) {
-
+    private localStorageService: LocalStorageService,
+    private authService: AuthService) {
   }
 
 
   ngOnInit(): void {
-    this.afa.idToken.subscribe((data) => {
-      console.log(data);
-      this.localStorageService.set('loginToken', data);
-    });
+    this.authService.setUpSubscriptions();
 
   }
 
   onLogOut() {
-    this.afa.auth.signOut();
+    this.authService.logout();
   }
 
   onLogin() {
