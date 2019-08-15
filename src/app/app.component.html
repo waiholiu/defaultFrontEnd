@@ -1,13 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-button routerLink="/">My App</button>
     <span class="fill-remaining-space"></span>
-    <button mat-button *ngIf="!authService.isLoggedIn()" (click)="onLogin()">Sign up / Log in</button>
-    <button mat-button *ngIf="authService.isLoggedIn()" (click)="onLogOut()">Log out</button>
+    <button mat-button *ngIf="!authService.isLoggedIn()" (click)="onLogin()">
+      Sign up / Log in
+    </button>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="onLogOut()">
+      Log out
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div>
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
