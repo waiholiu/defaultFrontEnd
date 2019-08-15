@@ -3,8 +3,8 @@
   <mat-toolbar-row>
     <button mat-button routerLink="/">My App</button>
     <span class="fill-remaining-space"></span>
-    <button mat-button (click)="onLogin()">Sign up / Log in</button>
-    <button mat-button (click)="onLogOut()">Log out</button>
+    <button mat-button *ngIf="!authService.isLoggedIn()" (click)="onLogin()">Sign up / Log in</button>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="onLogOut()">Log out</button>
   </mat-toolbar-row>
 </mat-toolbar>
 

@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   constructor(private apollo: Apollo, private router: Router,
     private afa: AngularFireAuth, private http: HttpClient,
     private localStorageService: LocalStorageService,
-    private authService: AuthService) {
+    public authService: AuthService) {
   }
 
 
