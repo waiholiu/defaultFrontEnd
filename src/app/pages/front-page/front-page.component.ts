@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pineapple, Pineapples } from '../models/pineapples';
+import { Pineapple, Pineapples } from '../../models/pineapples';
 import { Apollo } from 'apollo-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LocalStorageService } from 'angular-2-local-storage';

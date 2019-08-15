@@ -1,6 +1,6 @@
 import { Apollo, QueryRef } from 'apollo-angular';
 import { Component, OnInit } from '@angular/core';
-import { Pineapples, Pineapple } from '../models/pineapples';
+import { Pineapples, Pineapple } from '../../models/pineapples';
 import gql from 'graphql-tag';
 
 

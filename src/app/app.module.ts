@@ -18,9 +18,9 @@ import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { GraphQLModule } from './graphql.module';
-import { PineappleListComponent } from './pineapple-list/pineapple-list.component';
+import { PineappleListComponent } from './pages/pineapple-list/pineapple-list.component';
 import { RoutingModule } from './routing.module';
-import { FrontPageComponent } from './front-page/front-page.component';
+import { FrontPageComponent } from './pages/front-page/front-page.component';
 import { MaterialModule } from './material.module';
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   // signInFlow: 'popup',
