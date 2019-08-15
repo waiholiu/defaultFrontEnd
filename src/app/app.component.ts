@@ -6,6 +6,8 @@ import { LocalStorageService } from 'angular-2-local-storage';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 import { Pineapples, Pineapple } from './models/pineapples';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,7 +18,7 @@ import { Pineapples, Pineapple } from './models/pineapples';
 
 export class AppComponent implements OnInit {
 
-  constructor(private apollo: Apollo,
+  constructor(private apollo: Apollo, private router : Router,
     private afa: AngularFireAuth, private http: HttpClient,
     private localStorageService: LocalStorageService) {
 
@@ -33,5 +35,9 @@ export class AppComponent implements OnInit {
 
   onLogOut() {
     this.afa.auth.signOut();
+  }
+
+  onLogin() {
+    this.router.navigate(['/login']);
   }
 }
